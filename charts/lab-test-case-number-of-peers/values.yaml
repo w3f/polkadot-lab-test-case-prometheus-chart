@@ -1,0 +1,13 @@
+image:
+  repo: web3f/lab-test-case-number-of-peers
+  tag: latest
+
+port: 3000
+
+resources:
+  requests:
+    cpu: 200m
+    memory: 400Mi
+  limits:
+    cpu: 400m
+    memory: 600Mi
