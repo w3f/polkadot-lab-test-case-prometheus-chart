@@ -4,6 +4,7 @@ metadata:
   name: {{ .Release.Name }}
   labels:
     app: {{ .Release.Name }}
+{{ toYaml .Values.labels | indent 4 }}
 spec:
   ports:
   - name: backend

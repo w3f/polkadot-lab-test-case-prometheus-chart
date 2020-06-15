@@ -1,3 +1,5 @@
+environment: production
+
 image:
   repo: web3f/lab-test-case-number-of-peers
   tag: latest
@@ -11,3 +13,6 @@ resources:
   limits:
     cpu: 400m
     memory: 600Mi
+
+labels:
+  group: lab-test-case
