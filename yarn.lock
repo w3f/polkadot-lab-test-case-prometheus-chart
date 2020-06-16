@@ -275,15 +275,15 @@
   dependencies:
     winston "^3.2.1"
 
-"@w3f/polkadot-lab-types@^0.5.0":
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/@w3f/polkadot-lab-types/-/polkadot-lab-types-0.5.0.tgz#ae393ddf1aab4536a071e3ea4c41bf51ac9c50df"
-  integrity sha512-auS+7tfoL9G/Q81bZj32i8MfvqkBdozkNr5Jr2qmlbK0E2XaQvvEXLWCGLyhdPPTJ5drMP0xmqr/dL6NMFgy4w==
+"@w3f/polkadot-lab-types@^0.6.0":
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/@w3f/polkadot-lab-types/-/polkadot-lab-types-0.6.0.tgz#4925a93300ed241d1e1c6068e61b61ffaa2477eb"
+  integrity sha512-iDHBxJ2oxKkgWbYYp1f9uacgNgeR0RpGT47i3+AepQ+bXBcemu15dlQx2lTn979SiuqDyu0YQwopQ47QoKt6Tw==
 
-"@w3f/prometheus-api-client@^0.1.0":
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@w3f/prometheus-api-client/-/prometheus-api-client-0.1.0.tgz#2889a57be141cbcffcfb30babbca382ba9a467aa"
-  integrity sha512-h6qLFvu1B9pudjvym0k/77SXAR6h0mAJ0dc2EArAmlXx3fS+zq4F4sbD3jcL+WcEhs3QZL+8RzZOn1lU7hjUww==
+"@w3f/prometheus-api-client@^0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@w3f/prometheus-api-client/-/prometheus-api-client-0.2.0.tgz#bb2ad0966368e3d9074b292a38263f936c26e1ee"
+  integrity sha512-6fonT1bBLrsi+ZhwiQ63G6ID67kTGYjkSZoazRuORQ42CDlFQjj7K25FyPEQso7ofrYG/0n+nMaMAgUd7YeCTA==
   dependencies:
     "@w3f/logger" "^0.4.0"
     got "^11.3.0"
