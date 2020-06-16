@@ -8,7 +8,7 @@ export enum Action {
 }
 
 export interface Message {
-    action: Action,
+    action: Action;
 }
 
 export type Response = LabResult;
