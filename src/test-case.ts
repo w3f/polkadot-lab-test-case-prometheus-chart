@@ -23,8 +23,7 @@ export class NumberOfPeers implements TestCase {
             data: []
         };
 
-        const that = this;
-        setTimeout(async () => await that.getMetrics(), period);
+        setTimeout(async () => await this.getMetrics(), period);
     }
 
     async result(): Promise<LabResult> {
