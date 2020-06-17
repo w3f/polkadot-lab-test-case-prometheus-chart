@@ -43,7 +43,7 @@ export class NumberOfPeers implements TestCase {
         return this.currentResult;
     }
 
-    async getMetrics(): Promise<void> {
+    private async getMetrics(): Promise<void> {
         this.logger.debug('getMetrics called');
 
         const queryInput = {
