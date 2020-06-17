@@ -1,0 +1,23 @@
+image:
+  repo: parity/polkadot
+  tag: v0.8.8
+
+deploymentName: polkadot-lab
+
+chainspec:
+  preset: true
+  custom: false
+  name: 'kusama-dev'
+
+validator: true
+
+sessionInjection:
+  enabled: false
+
+persistence:
+  enabled: true
+  dataSize: 1Gi
+  chainspecSize: 1Gi
+  accessModes: [ "ReadWriteOnce" ]
+
+monitoring: true
