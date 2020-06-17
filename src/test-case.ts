@@ -2,8 +2,10 @@ import { Logger } from '@w3f/logger';
 import {
     TestCase,
     LabResult,
-    Status
+    Status,
+    Value
 } from '@w3f/polkadot-lab-types';
+import { PrometheusAPIClient } from '@w3f/prometheus-api-client';
 
 
 const name = 'number-of-peers';
@@ -11,8 +13,15 @@ const period = 1000;
 
 export class NumberOfPeers implements TestCase {
     private currentResult: LabResult;
+    private prometheusClient: PrometheusAPIClient;
 
-    constructor(private readonly logger: Logger) { }
+    constructor(private readonly logger: Logger) {
+        const cfg = {
+            url: 'http://prometheus:9090',
+            logger
+        }
+        this.prometheusClient = new PrometheusAPIClient(cfg);
+    }
 
     async start(): Promise<void> {
         const currentTime = Date.now().toString();
@@ -36,5 +45,18 @@ export class NumberOfPeers implements TestCase {
 
     async getMetrics(): Promise<void> {
         this.logger.debug('getMetrics called');
+
+        const queryInput = {
+            query: 'polkadot_sub_libp2p_peers_count'
+        };
+        const result = await this.prometheusClient.instantQuery(queryInput);
+
+        const dataItem = {
+            values: []
+        }
+        result.data.result.forEach((item) => {
+            dataItem.values.push([item.metric['node'], item.value[1]] as Value);
+        });
+        this.currentResult.data.push(dataItem);
     }
 }
