@@ -5,7 +5,7 @@ import {
     Status,
     Value
 } from '@w3f/polkadot-lab-types';
-import { PrometheusAPIClient } from '@w3f/prometheus-api-client';
+import { PrometheusAPIClient, InstantResponse } from '@w3f/prometheus-api-client';
 
 
 const name = 'number-of-peers';
@@ -17,7 +17,7 @@ export class NumberOfPeers implements TestCase {
 
     constructor(private readonly logger: Logger) {
         const cfg = {
-            url: 'http://prometheus:9090',
+            url: 'http://prometheus-operator-prometheus:9090',
             logger
         }
         this.prometheusClient = new PrometheusAPIClient(cfg);
@@ -49,8 +49,12 @@ export class NumberOfPeers implements TestCase {
         const queryInput = {
             query: 'polkadot_sub_libp2p_peers_count'
         };
-        const result = await this.prometheusClient.instantQuery(queryInput);
-
+        let result: InstantResponse;
+        try {
+            result = await this.prometheusClient.instantQuery(queryInput);
+        } catch (e) {
+            this.logger.error(`Could not fetch metrics: ${e}`);
+        }
         const dataItem = {
             values: []
         }
