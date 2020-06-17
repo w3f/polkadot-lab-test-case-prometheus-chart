@@ -16,3 +16,6 @@ resources:
 
 labels:
   group: lab-test-case
+
+targetLabels:
+logLevel: info
