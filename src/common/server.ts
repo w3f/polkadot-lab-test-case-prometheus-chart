@@ -30,20 +30,20 @@ export class Server {
         ws.on('message', this.onMessage.bind(this));
     }
 
-    onMessage(message: string): void {
+    async onMessage(message: string): Promise<void> {
         this.logger.debug(`Received message on Websockets server: '${message}'`);
 
         const messageObj = JSON.parse(message) as Message;
 
         switch (messageObj.action) {
             case Action.Start: {
-                const result = this.testCase.start();
-                this.ws.send(result);
+                await this.testCase.start();
+                this.ws.send("");
                 break;
             }
             case Action.Status || Action.Stop: {
-                const result = this.testCase.result();
-                this.ws.send(result);
+                const result = await this.testCase.result();
+                this.ws.send(JSON.stringify(result));
                 break;
             }
             default:
