@@ -31,7 +31,7 @@ jobs:
 
   integrationTests:
     docker:
-      - image: web3f/ci-commons:v2.1.4
+      - image: web3f/ci-commons-node:v0.1.0
     resource_class: large
     steps:
       - checkout
