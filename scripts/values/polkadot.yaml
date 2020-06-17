@@ -1,6 +1,6 @@
 image:
   repo: parity/polkadot
-  tag: v0.8.8
+  tag: v0.8.9
 
 deploymentName: polkadot-lab
 
@@ -21,3 +21,5 @@ persistence:
   accessModes: [ "ReadWriteOnce" ]
 
 monitoring: true
+
+dnsNameservers:
