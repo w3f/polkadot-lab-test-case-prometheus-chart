@@ -19,7 +19,7 @@ export class Server {
     async start(): Promise<void> {
         this.wss = new WebSocket.Server({ port: this.port });
 
-        this.logger.info(`Websockets server listening in ${this.port}`);
+        this.logger.info(`Websockets server listening in port ${this.port}`);
 
         this.wss.on('connection', this.onConnect.bind(this));
         this.wss.on('close', this.onClose.bind(this));
