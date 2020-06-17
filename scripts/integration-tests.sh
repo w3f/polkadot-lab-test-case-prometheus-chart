@@ -61,7 +61,7 @@ main(){
          --set extraBootnodes[0]="/dns4/polkadot-1-p2p/tcp/30333/p2p/12D3KooWDpJ7As7BWAwRMfu1VU2WCqNjvq387JEYKDBj4kx6nXTN" \
          polkadot-4 w3f/polkadot
 
-    helm install --set port=3000 test-case ./charts/lab-test-case-number-of-peers
+    helm install --set port=3000 --set image.tag=${CIRCLE_SHA1} test-case ./charts/lab-test-case-number-of-peers
 
     run_tests
 }
