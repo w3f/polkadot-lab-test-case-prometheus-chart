@@ -1,5 +1,6 @@
 import { Logger, createLogger } from '@w3f/logger';
 import WebSocket from 'ws';
+import { LabResult } from '@w3f/polkadot-lab-types';
 
 import { Message, Action } from './types';
 
@@ -20,34 +21,36 @@ export class Client {
         this.ws = new WebSocket(this.endpoint);
 
         this.ws.on('open', this.onOpen.bind(this));
-        this.ws.on('message', this.onMessage.bind(this));
         this.ws.on('close', this.onClose.bind(this));
 
         setTimeout(() => this.requestStatus, 5000);
     }
 
-    onOpen(): void {
+    requestStatus(): Promise<LabResult> {
+        return new Promise((resolve) => {
+            const statusMsg: Message = {
+                action: Action.Status
+            }
+
+            this.ws.send(JSON.stringify(statusMsg));
+            this.ws.on('message', (data) => {
+                const obj = JSON.parse(data.toString());
+                resolve(obj);
+            });
+        }
+        );
+    }
+
+    private onOpen(): void {
         this.logger.debug(`Connected to ${this.endpoint}`);
 
         const startMsg: Message = {
             action: Action.Start
         }
-        this.ws.send(startMsg);
+        this.ws.send(JSON.stringify(startMsg));
     }
 
-    onMessage(data: any): void {
-        this.logger.debug(`Received ${JSON.stringify(data)}`);
-    }
-
-    onClose(): void {
+    private onClose(): void {
         this.logger.debug(`Closed connection to ${this.endpoint}`);
-    }
-
-    requestStatus(): void {
-        const statusMsg: Message = {
-            action: Action.Status
-        }
-
-        this.ws.send(statusMsg);
     }
 }
