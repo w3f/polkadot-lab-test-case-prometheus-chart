@@ -24,6 +24,7 @@ export class NumberOfPeers implements TestCase {
     }
 
     async start(): Promise<void> {
+        this.logger.debug('test-case starting');
         const currentTime = Date.now().toString();
         this.currentResult = {
             name,
@@ -36,6 +37,7 @@ export class NumberOfPeers implements TestCase {
     }
 
     async result(): Promise<LabResult> {
+        this.logger.debug('results requested');
         const currentTime = Date.now().toString();
 
         this.currentResult.endTime = currentTime;
