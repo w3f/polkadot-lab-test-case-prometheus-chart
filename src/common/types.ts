@@ -4,7 +4,7 @@ import { LabResult } from '@w3f/polkadot-lab-types';
 export enum Action {
     Start = 'start',
     Stop = 'stop',
-    Status = 'status,'
+    Status = 'status'
 }
 
 export interface Message {
