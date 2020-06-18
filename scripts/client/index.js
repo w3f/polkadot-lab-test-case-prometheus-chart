@@ -1,19 +1,20 @@
 const { Client } = require('../../dist/common');
+const { createLogger } = require('@w3f/logger');
 
 const client = new Client('ws://localhost:3000');
 
-function delay(delay) {
-  return new Promise(function(resolve) {
-    setTimeout(resolve, delay);
-  });
-}
 
 async function main() {
+  const logger = createLogger('debug');
+
   client.start();
 
-  await delay(5000);
+  await client.delay(5000);
 
   const result = await client.requestStatus();
+
+  logger.debug(`result: ${JSON.stringify(result)}`);
+  process.exit(0);
 }
 
 main();
