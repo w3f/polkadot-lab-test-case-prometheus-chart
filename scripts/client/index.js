@@ -9,7 +9,7 @@ async function main() {
 
   client.start();
 
-  await client.delay(5000);
+  await client.delay(20000);
 
   const result = await client.requestStatus();
 
