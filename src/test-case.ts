@@ -54,6 +54,7 @@ export class NumberOfPeers implements TestCase {
         let result: InstantResponse;
         try {
             result = await this.prometheusClient.instantQuery(queryInput);
+            this.logger.debug(`Result on test-case: ${JSON.stringify(result)}`);
         } catch (e) {
             this.logger.error(`Could not fetch metrics: ${e}`);
         }
