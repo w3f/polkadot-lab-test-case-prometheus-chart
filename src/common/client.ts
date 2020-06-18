@@ -41,6 +41,12 @@ export class Client {
         );
     }
 
+    delay(delay: number) {
+        return new Promise(function(resolve) {
+            setTimeout(resolve, delay);
+        });
+    }
+
     private onOpen(): void {
         this.logger.debug(`Connected to ${this.endpoint}`);
 
