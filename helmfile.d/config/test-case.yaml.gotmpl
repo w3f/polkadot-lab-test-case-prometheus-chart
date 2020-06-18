@@ -2,3 +2,5 @@ image:
   tag: {{ env "CIRCLE_SHA1" }}
 
 port: {{ env "WS_PORT" | default 3000 }}
+
+logLevel: debug
