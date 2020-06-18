@@ -33,7 +33,7 @@ export class NumberOfPeers implements TestCase {
             data: []
         };
 
-        setTimeout(async () => await this.getMetrics(), period);
+        setInterval(async () => await this.getMetrics(), period);
     }
 
     async result(): Promise<LabResult> {
@@ -56,6 +56,7 @@ export class NumberOfPeers implements TestCase {
             result = await this.prometheusClient.instantQuery(queryInput);
             this.logger.debug(`Result on test-case: ${JSON.stringify(result)}`);
         } catch (e) {
+            this.currentResult.status = Status.Error;
             this.logger.error(`Could not fetch metrics: ${e}`);
         }
         const dataItem = {
