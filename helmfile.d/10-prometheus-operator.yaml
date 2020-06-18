@@ -1,0 +1,9 @@
+environments:
+  ci:
+
+releases:
+- name: prometheus-operator
+  chart: stable/prometheus-operator
+  version: 8.13.8
+  values:
+  - ./config/prometheus-operator.yaml.gotmpl

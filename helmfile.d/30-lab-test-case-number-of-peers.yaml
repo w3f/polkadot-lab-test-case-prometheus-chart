@@ -1,0 +1,8 @@
+environments:
+  ci:
+
+releases:
+- name: test-case
+  chart: ./charts/lab-test-case-number-of-peers
+  values:
+  - ./config/test-case.yaml.gotmpl
