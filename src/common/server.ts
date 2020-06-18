@@ -43,7 +43,9 @@ export class Server {
             }
             case Action.Status || Action.Stop: {
                 const result = await this.testCase.result();
-                this.ws.send(JSON.stringify(result));
+                const resultStr = JSON.stringify(result);
+                this.logger.debug(`sending result: '${resultStr}'`);
+                this.ws.send(resultStr);
                 break;
             }
             default:
