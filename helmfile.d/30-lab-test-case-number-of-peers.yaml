@@ -3,6 +3,6 @@ environments:
 
 releases:
 - name: test-case
-  chart: ./charts/lab-test-case-number-of-peers
+  chart: ../charts/lab-test-case-number-of-peers
   values:
   - ./config/test-case.yaml.gotmpl
