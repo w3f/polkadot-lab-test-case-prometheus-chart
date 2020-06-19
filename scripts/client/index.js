@@ -1,4 +1,4 @@
-const { Client } = require('../../dist/common');
+const { Client } = require('@w3f/polkadot-lab-test-case-common');
 const { createLogger } = require('@w3f/logger');
 
 const client = new Client('ws://localhost:3000');
