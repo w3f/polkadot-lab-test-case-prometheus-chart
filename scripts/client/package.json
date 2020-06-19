@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "@w3f/logger": "^0.4.0",
+    "@w3f/polkadot-lab-test-case-common": "^0.1.0",
     "ws": "^7.3.0"
   }
 }

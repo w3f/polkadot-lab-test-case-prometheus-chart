@@ -2,12 +2,33 @@
 # yarn lockfile v1
 
 
+"@w3f/logger@^0.3.0":
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/@w3f/logger/-/logger-0.3.0.tgz#2d79e5705675c62bd1a593843546dd93eef5af17"
+  integrity sha512-wC9PMIxwBQKVx7Bn+1XjANlrKOuj31iXYMepCm9BiMCzTpO4ylZFYE4kNi8iYdrubPeQpFoIOV15rhsDFa1v7g==
+  dependencies:
+    winston "^3.2.1"
+
 "@w3f/logger@^0.4.0":
   version "0.4.0"
   resolved "https://registry.yarnpkg.com/@w3f/logger/-/logger-0.4.0.tgz#f4d09c57a579243d77059c2f42282dbc1f52af69"
   integrity sha512-moUzLBzI+/QyKXOuMOoMrmRGWoqu7KrXuYg1DZFaAW3euN6hBWRJjNNHzkEUOQZkgaLiw5ebmeQLOJyKyCsiuw==
   dependencies:
     winston "^3.2.1"
+
+"@w3f/polkadot-lab-test-case-common@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@w3f/polkadot-lab-test-case-common/-/polkadot-lab-test-case-common-0.1.0.tgz#c25150420947d054d2f325b5c8db800ded4bded9"
+  integrity sha512-CelYlUvlsCU/v4oDHsfzGlt2ZYsftu4DkX1shs5g2Gw07E11GGIADv6sK8U+z1G3OA4jlj2mrKWmOfeO0abb0Q==
+  dependencies:
+    "@w3f/logger" "^0.3.0"
+    "@w3f/polkadot-lab-types" "^0.7.0"
+    ws "^7.3.0"
+
+"@w3f/polkadot-lab-types@^0.7.0":
+  version "0.7.0"
+  resolved "https://registry.yarnpkg.com/@w3f/polkadot-lab-types/-/polkadot-lab-types-0.7.0.tgz#6b7f1947d87ec1ac453bb7d8553861897da849fa"
+  integrity sha512-NKxY87FPou0vj35RwHCe27F/35Rf9GEesB0oOHUxAG3cut1fu6T6AGFP9yPINgKBvuETgt22M0UOpd8W76YoPA==
 
 async@^2.6.1:
   version "2.6.3"
