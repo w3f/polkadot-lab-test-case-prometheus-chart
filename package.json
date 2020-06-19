@@ -22,6 +22,7 @@
   "dependencies": {
     "@w3f/config": "^0.1.1",
     "@w3f/logger": "^0.4.0",
+    "@w3f/polkadot-lab-test-case-common": "^0.1.0",
     "@w3f/polkadot-lab-types": "^0.7.0",
     "@w3f/prometheus-api-client": "^0.3.0",
     "commander": "^4.1.1",
