@@ -65,7 +65,7 @@ export class NumberOfPeers implements TestCase {
         }
         result.data.result.forEach((item) => {
             dataItem.metric = item.metric;
-            dataItem.values.push(["" + item.value[0] as String, item.value[1]] as Value);
+            dataItem.values.push(["" + item.value[0] as string, item.value[1]] as Value);
         });
         this.currentResult.data.push(dataItem);
     }
