@@ -3,7 +3,8 @@ import {
     TestCase,
     LabResult,
     Status,
-    Value
+    Value,
+    DataItem
 } from '@w3f/polkadot-lab-types';
 import { PrometheusAPIClient, InstantResponse } from '@w3f/prometheus-api-client';
 
@@ -59,11 +60,12 @@ export class NumberOfPeers implements TestCase {
             this.currentResult.status = Status.Error;
             this.logger.error(`Could not fetch metrics: ${e}`);
         }
-        const dataItem = {
+        const dataItem: DataItem = {
             values: []
         }
         result.data.result.forEach((item) => {
-            dataItem.values.push([item.metric['node'], item.value[1]] as Value);
+            dataItem.metric = item.metric;
+            dataItem.values.push(["" + item.value[0] as String, item.value[1]] as Value);
         });
         this.currentResult.data.push(dataItem);
     }
