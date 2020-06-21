@@ -11,3 +11,5 @@ data:
     targetLabels:
 {{ toYaml .Values.targetLabels | indent 6 }}
     port: {{ .Values.port }}
+    prometheus:
+{{ toYaml .Values.prometheus | indent 6 }}
