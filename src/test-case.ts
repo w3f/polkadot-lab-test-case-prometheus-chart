@@ -4,37 +4,37 @@ import {
     LabResult,
     Status,
     Value,
-    DataItem
+    DataItem,
+    PrometheusConfig
 } from '@w3f/polkadot-lab-types';
 import { PrometheusAPIClient, InstantResponse } from '@w3f/prometheus-api-client';
 
 
-const name = 'number-of-peers';
-const period = 1000;
-
-export class NumberOfPeers implements TestCase {
+export class Prometheus implements TestCase {
     private currentResult: LabResult;
     private prometheusClient: PrometheusAPIClient;
 
-    constructor(private readonly logger: Logger) {
-        const cfg = {
+    constructor(
+        private readonly config: PrometheusConfig,
+        private readonly logger: Logger) {
+        const clientCfg = {
             url: 'http://prometheus-operator-prometheus:9090',
             logger
         }
-        this.prometheusClient = new PrometheusAPIClient(cfg);
+        this.prometheusClient = new PrometheusAPIClient(clientCfg);
     }
 
     async start(): Promise<void> {
         this.logger.debug('test-case starting');
         const currentTime = Date.now().toString();
         this.currentResult = {
-            name,
+            name: this.config.name,
             startTime: currentTime,
             status: Status.InProgress,
             data: []
         };
 
-        setInterval(async () => await this.getMetrics(), period);
+        setInterval(async () => await this.getMetrics(), this.config.period);
     }
 
     async result(): Promise<LabResult> {
@@ -50,7 +50,7 @@ export class NumberOfPeers implements TestCase {
         this.logger.debug('getMetrics called');
 
         const queryInput = {
-            query: 'polkadot_sub_libp2p_peers_count'
+            query: this.config.query
         };
         let result: InstantResponse;
         try {
@@ -60,13 +60,12 @@ export class NumberOfPeers implements TestCase {
             this.currentResult.status = Status.Error;
             this.logger.error(`Could not fetch metrics: ${e}`);
         }
-        const dataItem: DataItem = {
-            values: []
-        }
         result.data.result.forEach((item) => {
-            dataItem.metric = item.metric;
-            dataItem.values.push(["" + item.value[0] as string, item.value[1]] as Value);
+            const dataItem: DataItem = {
+                metric: item.metric,
+                value: ["" + item.value[0] as string, item.value[1]] as Value
+            };
+            this.currentResult.data.push(dataItem);
         });
-        this.currentResult.data.push(dataItem);
     }
 }
