@@ -3,7 +3,8 @@
 source /scripts/common.sh
 source /scripts/bootstrap-helm.sh
 
-WS_PORT=3000
+export WS_PORT=3000
+export NODES=4
 
 run_tests() {
     echo Running tests...

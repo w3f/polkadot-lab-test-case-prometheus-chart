@@ -1,9 +1,13 @@
+const process = require('process');
 const { should } = require('chai');
 
 const { Client } = require('@w3f/polkadot-lab-test-case-common');
 const { createLogger } = require('@w3f/logger');
 
-const client = new Client('ws://localhost:3000');
+const wsPort = process.env['WS_PORT'];
+const client = new Client(`ws://localhost:${wsPort}`);
+const nodes = process.env['NODES'];
+
 const logger = createLogger('debug');
 
 should();
@@ -16,6 +20,10 @@ describe('Prometheus TestCase', () => {
 
       const result = await client.requestStatus();
 
-      logger.debug(`result: ${JSON.stringify(result)}`);
+      const dataLength = result.data.length;
+      for (let i = 0; i< nodes; i++){
+        const actual = parseInt(result.data[dataLength - i - 1].value[1]);
+        actual.should.be.gt(0);
+      }
     });
 });
