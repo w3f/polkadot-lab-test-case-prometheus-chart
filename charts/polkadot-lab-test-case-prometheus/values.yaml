@@ -19,3 +19,7 @@ labels:
 
 targetLabels:
 logLevel: info
+
+prometheus:
+  name: number-of-peers
+  query: polkadot_sub_libp2p_peers_count
