@@ -23,7 +23,7 @@ teardown() {
 }
 
 main(){
-    if [ -z "$KEEP_W3F_LAB_TEST_CASE_NUMBER_OF_PEERS" ]; then
+    if [ -z "$KEEP_W3F_POLKADOT_LAB_TEST_CASE_PROMETHEUS" ]; then
         trap teardown EXIT
     fi
 
