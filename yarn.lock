@@ -282,19 +282,24 @@
   dependencies:
     winston "^3.2.1"
 
-"@w3f/polkadot-lab-test-case-common@^0.1.0":
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@w3f/polkadot-lab-test-case-common/-/polkadot-lab-test-case-common-0.1.0.tgz#c25150420947d054d2f325b5c8db800ded4bded9"
-  integrity sha512-CelYlUvlsCU/v4oDHsfzGlt2ZYsftu4DkX1shs5g2Gw07E11GGIADv6sK8U+z1G3OA4jlj2mrKWmOfeO0abb0Q==
+"@w3f/polkadot-lab-test-case-common@^0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@w3f/polkadot-lab-test-case-common/-/polkadot-lab-test-case-common-0.2.0.tgz#60e06d99ebf38c3276bbd8b909c4a04281c6d75e"
+  integrity sha512-oQGJpjUXgcam3m2nswDgmcy969as72ku4DLknW3U5ez75RK9rFtdNdFcwhDV7LIGEJt7iex3n93rgm6qmPhZjQ==
   dependencies:
     "@w3f/logger" "^0.3.0"
-    "@w3f/polkadot-lab-types" "^0.7.0"
+    "@w3f/polkadot-lab-types" "^0.8.0"
     ws "^7.3.0"
 
-"@w3f/polkadot-lab-types@^0.7.0":
-  version "0.7.0"
-  resolved "https://registry.yarnpkg.com/@w3f/polkadot-lab-types/-/polkadot-lab-types-0.7.0.tgz#6b7f1947d87ec1ac453bb7d8553861897da849fa"
-  integrity sha512-NKxY87FPou0vj35RwHCe27F/35Rf9GEesB0oOHUxAG3cut1fu6T6AGFP9yPINgKBvuETgt22M0UOpd8W76YoPA==
+"@w3f/polkadot-lab-types@^0.10.0":
+  version "0.10.0"
+  resolved "https://registry.yarnpkg.com/@w3f/polkadot-lab-types/-/polkadot-lab-types-0.10.0.tgz#664fcd9a4875010f702ca0a09908edeedea2b10c"
+  integrity sha512-rChEAobMmUWCVYPWj8RSfuxbM7xuCuBudOhKiPLLHA6VgZmfUpLDo9hdIrJmcoiyL52zzblGNdzmHimjyFaTBA==
+
+"@w3f/polkadot-lab-types@^0.8.0":
+  version "0.8.0"
+  resolved "https://registry.yarnpkg.com/@w3f/polkadot-lab-types/-/polkadot-lab-types-0.8.0.tgz#60a8dad44de522d2f19e07e0269bca302d744175"
+  integrity sha512-MvIrMiB7Liu/epesqaN7yn+M4DWFiTGHsMGLtN8agjgnJzo+WVufVrkw4TgnqhO5YKSWgVTQyb4H9VcQRWGJJA==
 
 "@w3f/prometheus-api-client@^0.3.0":
   version "0.3.0"
