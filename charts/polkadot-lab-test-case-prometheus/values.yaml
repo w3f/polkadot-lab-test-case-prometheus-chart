@@ -1,7 +1,7 @@
 environment: production
 
 image:
-  repo: web3f/lab-test-case-number-of-peers
+  repo: web3f/polkadot-lab-test-case-prometheus
   tag: latest
 
 port: 3000
