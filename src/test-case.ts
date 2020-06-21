@@ -9,6 +9,7 @@ import {
 } from '@w3f/polkadot-lab-types';
 import { PrometheusAPIClient, InstantResponse } from '@w3f/prometheus-api-client';
 
+const defaultPeriod = 1000;
 
 export class Prometheus implements TestCase {
     private currentResult: LabResult;
@@ -34,7 +35,11 @@ export class Prometheus implements TestCase {
             data: []
         };
 
-        setInterval(async () => await this.getMetrics(), this.config.period);
+        let period = this.config.period;
+        if (!period) {
+            period = defaultPeriod;
+        }
+        setInterval(async () => await this.getMetrics(), period);
     }
 
     async result(): Promise<LabResult> {
