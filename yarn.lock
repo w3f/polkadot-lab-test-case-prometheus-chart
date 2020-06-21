@@ -291,10 +291,10 @@
     "@w3f/polkadot-lab-types" "^0.8.0"
     ws "^7.3.0"
 
-"@w3f/polkadot-lab-types@^0.10.0":
-  version "0.10.0"
-  resolved "https://registry.yarnpkg.com/@w3f/polkadot-lab-types/-/polkadot-lab-types-0.10.0.tgz#664fcd9a4875010f702ca0a09908edeedea2b10c"
-  integrity sha512-rChEAobMmUWCVYPWj8RSfuxbM7xuCuBudOhKiPLLHA6VgZmfUpLDo9hdIrJmcoiyL52zzblGNdzmHimjyFaTBA==
+"@w3f/polkadot-lab-types@^0.10.1":
+  version "0.10.1"
+  resolved "https://registry.yarnpkg.com/@w3f/polkadot-lab-types/-/polkadot-lab-types-0.10.1.tgz#5d15a28e8149607893a61b47a38ba836adac4c0c"
+  integrity sha512-WV8NUT3/GL285+P2Vfx9u06heOIWNI+6QgoniBq5E2+nqJLrlmiGX6/tuqJtArHFn4xevgyeMwNz+0w+tiBbqQ==
 
 "@w3f/polkadot-lab-types@^0.8.0":
   version "0.8.0"
