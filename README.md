@@ -1,3 +1,3 @@
-[![CircleCI](https://circleci.com/gh/w3f/lab-test-case-number-of-peers-chart.svg?style=svg)](https://circleci.com/gh/w3f/lab-test-case-number-of-peers-chart)
+[![CircleCI](https://circleci.com/gh/w3f/polkadot-lab-test-case-prometheus-chart.svg?style=svg)](https://circleci.com/gh/w3f/polkadot-lab-test-case-prometheus-chart)
 
-# lab-test-case-number-of-peers-chart
+# polkadot-lab-test-case-prometheus-chart
