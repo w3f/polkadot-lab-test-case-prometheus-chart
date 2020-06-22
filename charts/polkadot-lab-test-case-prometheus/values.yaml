@@ -1,0 +1,25 @@
+environment: production
+
+image:
+  repo: web3f/polkadot-lab-test-case-prometheus
+  tag: latest
+
+port: 3000
+
+resources:
+  requests:
+    cpu: 200m
+    memory: 400Mi
+  limits:
+    cpu: 400m
+    memory: 600Mi
+
+labels:
+  group: lab-test-case
+
+targetLabels:
+logLevel: info
+
+prometheus:
+  name: number-of-peers
+  query: polkadot_sub_libp2p_peers_count

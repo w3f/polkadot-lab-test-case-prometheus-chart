@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Release.Name }}
+  labels:
+    app: {{ .Release.Name }}
+{{ toYaml .Values.labels | indent 4 }}
+spec:
+  ports:
+  - name: backend
+    port: {{ .Values.port }}
+  selector:
+    app: {{ .Release.Name }}

@@ -1,0 +1,103 @@
+version: 2
+
+jobs:
+  test:
+    docker:
+      - image: web3f/node-dind:v0.3.0
+    steps:
+      - checkout
+      - setup_remote_docker
+      - run: yarn
+      - run: yarn test
+
+  lint:
+    docker:
+      - image: web3f/ci-commons:v2.1.4
+    steps:
+      - checkout
+      - run:
+          command: |
+            helm lint ./charts/polkadot-lab-test-case-prometheus
+
+  buildImage:
+    docker:
+      - image: web3f/ci-commons:v2.1.4
+    steps:
+      - checkout
+      - setup_remote_docker
+      - run:
+          command: |
+            /scripts/build-image.sh web3f/polkadot-lab-test-case-prometheus .
+
+  integrationTests:
+    docker:
+      - image: web3f/ci-commons-node:v0.1.0
+    resource_class: large
+    steps:
+      - checkout
+      - setup_remote_docker
+      - run:
+          description: run integration tests
+          command: |
+            /scripts/integration-tests.sh
+
+  publishImage:
+    docker:
+      - image: web3f/ci-commons:v2.1.4
+    steps:
+      - checkout
+      - setup_remote_docker
+      - run:
+          command: |
+            /scripts/publish-image.sh web3f/polkadot-lab-test-case-prometheus
+
+  publishChart:
+    docker:
+      - image: web3f/ci-commons:v2.1.4
+    steps:
+      - checkout
+      - run:
+          command: |
+            /scripts/publish-chart.sh
+
+workflows:
+  version: 2
+  test_and_deploy:
+    jobs:
+      - test:
+          filters:
+            tags:
+              only: /.*/
+      - lint:
+          filters:
+            tags:
+              only: /.*/
+      - buildImage:
+          filters:
+            tags:
+              only: /.*/
+          requires:
+            - test
+            - lint
+      - integrationTests:
+          filters:
+            tags:
+              only: /.*/
+          requires:
+            - buildImage
+      - publishImage:
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /v[0-9]+(\.[0-9]+)*/
+          requires:
+            - integrationTests
+      - publishChart:
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /v[0-9]+(\.[0-9]+)*/
+          requires:
+            - integrationTests

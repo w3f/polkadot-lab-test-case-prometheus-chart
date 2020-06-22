@@ -1,0 +1,10 @@
+image:
+  tag: {{ env "CIRCLE_SHA1" }}
+
+port: {{ env "WS_PORT" | default 3000 }}
+
+logLevel: debug
+
+prometheus:
+  name: number-of-peers
+  query: polkadot_sub_libp2p_peers_count
