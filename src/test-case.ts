@@ -65,11 +65,13 @@ export class Prometheus implements TestCase {
             this.currentResult.status = Status.Error;
             this.logger.error(`Could not fetch metrics: ${e}`);
         }
+        this.logger.debug(`Gathering result data, result.data.result.length: ${result.data.result.length}`);
         result.data.result.forEach((item) => {
             const dataItem: DataItem = {
                 metric: item.metric,
                 value: ["" + item.value[0] as string, item.value[1]] as Value
             };
+            this.logger.debug(`Adding to results: ${JSON.stringify(dataItem)}`);
             this.currentResult.data.push(dataItem);
         });
     }
