@@ -11,6 +11,6 @@
     "@w3f/polkadot-lab-test-case-common": "^0.1.0",
     "chai": "^4.2.0",
     "mocha": "^8.0.1",
-    "ws": "^7.3.0"
+    "ws": "^7.4.6"
   }
 }
